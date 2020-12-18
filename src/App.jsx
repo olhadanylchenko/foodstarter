@@ -15,7 +15,16 @@ function App() {
       });
   }, []);
 
-  return <div></div>;
+  return (
+    <>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li>{user.name}</li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 export default App;
