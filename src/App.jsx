@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import User from "./User";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -20,10 +21,7 @@ function App() {
       <h1>Users</h1>
       <ul>
         {users.map((user) => (
-          <>
-            <h2>{user.name}</h2>
-            <p>{`${user.address.zipcode} ${user.address.city} ${user.address.street} ${user.address.suite}`}</p>
-          </>
+          <User user={user} />
         ))}
       </ul>
     </>
