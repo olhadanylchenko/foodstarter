@@ -20,7 +20,10 @@ function App() {
       <h1>Users</h1>
       <ul>
         {users.map((user) => (
-          <li>{user.name}</li>
+          <>
+            <h2>{user.name}</h2>
+            <p>{`${user.address.zipcode} ${user.address.city} ${user.address.street} ${user.address.suite}`}</p>
+          </>
         ))}
       </ul>
     </>
