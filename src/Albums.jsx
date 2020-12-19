@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 
 export default function Albums(props) {
   const [albums, setAlbums] = useState([]);
+  const [userName, setUserName] = useState("");
 
   const userId = props.match.params.id;
+
   useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+      .then((response) => response.json())
+      .then((users) => {
+        const currentUser = users.find((user) => user.id === +userId);
+        setUserName(currentUser.name);
+      });
+
     fetch(`https://jsonplaceholder.typicode.com/user/${userId}/albums`)
       .then((response) => response.json())
       .then((albums) => {
@@ -17,10 +26,9 @@ export default function Albums(props) {
       });
   }, [userId]);
 
-  //console.log(albums);
   return (
     <>
-      <h1>Albums</h1>
+      {userName && <h1>Albums of {userName}</h1>}
       <ul>
         {albums.map((album) => (
           <li key={album.id}>
