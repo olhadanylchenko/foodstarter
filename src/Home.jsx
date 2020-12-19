@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   const [users, setUsers] = useState([]);
