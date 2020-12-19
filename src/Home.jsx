@@ -12,6 +12,7 @@ function App() {
         const usersNames = users.map((user) => ({
           name: user.name,
           address: user.address,
+          id: user.id,
         }));
         setUsers(usersNames);
       });
@@ -22,7 +23,7 @@ function App() {
       <h1>Users</h1>
       <ul>
         {users.map((user) => (
-          <User user={user} />
+          <User user={user} key={user.id} />
         ))}
       </ul>
     </>
