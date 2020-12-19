@@ -1,4 +1,4 @@
-describe("Cypress", () => {
+describe("foodstarter-task", () => {
   it("is working", () => {
     cy.visit("/");
     cy.get("ul>li>a").first().click();
